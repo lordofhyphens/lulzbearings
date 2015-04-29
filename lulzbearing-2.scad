@@ -23,10 +23,10 @@ module lulz_single_holder(x_sep=91-59,y_sep=64-39,lm8uu=15, height=6.5, holes=tr
     }
     translate([0,0,block_height-(offset_height+1)+(lm8uu/2)]) 
     {
-    translate([x_sep/2,0,0])rotate([-90,0,0]) cylinder(r=lm8uu/2,h=24.2);
-
-    translate([x_sep/2,-3.2,0])rotate([-90,0,0]) cylinder(r1=(lm8uu-4)/2,r2=lm8uu/2,h=3.2);
-    translate([x_sep/2,24.2,0])rotate([-90,0,0]) cylinder(r1=(lm8uu)/2,r2=(lm8uu-4)/2,h=4);
+      fudge1=0.8;
+      translate([x_sep/2,0.8,0])rotate([-90,0,0]) cylinder(r=lm8uu/2,h=24.2-fudge1);
+      translate([x_sep/2,-3.2,0])rotate([-90,0,0]) cylinder(r1=(lm8uu-4)/2,r2=lm8uu/2,h=3.2+fudge1);
+      translate([x_sep/2,24.2-fudge1,0])rotate([-90,0,0]) cylinder(r1=(lm8uu)/2,r2=(lm8uu-4)/2,h=4+fudge1);
     }
     translate([x_sep/2,0,0])cube([lm8uu/2,100,lm8uu],center=true);
     translate([-3.2,-3.2,-block_height])cube([x_sep+6.4,y_sep+6.4,block_height]);
